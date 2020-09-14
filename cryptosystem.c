@@ -24,12 +24,14 @@ int main(int argc, char* argv[]) {
         switch(choice)
         {
             case 1 : caesarEncrypt();
+                     getchar();
                      break;
             case 2 : caesarDecrypt();
+                     getchar();
                      break;
         }
         printf("\n");
-        getchar();
+        
     }
     while(choice!=3);
 }

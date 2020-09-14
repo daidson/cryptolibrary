@@ -2,7 +2,7 @@
 
 >An encryption and decryption library with the most used algorithms.
 
-![GNU Compiler Collection - GCC](https://gcc.gnu.org/install/download.html)
+- [GNU Compiler Collection - GCC](https://gcc.gnu.org/install/download.html)
 
 ## 👩‍🏫 Getting started
 

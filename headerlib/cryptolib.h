@@ -1,17 +1,21 @@
+// || Add libraries here				    //
+#include<stdlib.h>
 #include<stdio.h>
 #include<windows.h>
 
-// exercise one                    //
-// encrypt a message and print it. //
-// this is based on ceaser cypher. //
+// || From this point onwards, functions    //
+
+// || exercise one                    		//
+// || encrypt a message and print it.		//
+// || this is based on ceaser cypher. 		//
 int caesarEncrypt()
 {
     char message[255], ch;
 	int i, key;
 	
-	printf("Entre com o texto a criptografar: ");
+	printf("Input the text to be encrypted: ");
 	fgets(message, 255, stdin);
-	printf("Entre com a chave: ");
+	printf("Input the key for encryption: ");
 	scanf("%d", &key);
 	
 	for(i = 0; message[i] != '\0'; ++i){
@@ -37,24 +41,24 @@ int caesarEncrypt()
 		}
 	}
 	
-	printf("Mensagem cifrada: %s", message);
+	printf("Encrypted message: %s", message);
 	getchar();
 	printf("\n");
 	
 	return 0;
 }
 
-// exercise two                    //
-// decrypt a message and print it. //
-// this is based on ceaser cypher. //
+// || exercise two                   		//
+// || decrypt a message and print it.		//
+// || this is based on ceaser cypher. 		//
 int caesarDecrypt()
 {
     char message[255], ch;
 	int i, key;
 	
-	printf("Entre com uma mensagem para ser decriptografada: ");
+	printf("Input the message to be decrypted: ");
 	fgets(message, 255, stdin);
-	printf("Entre com a chave: ");
+	printf("Input the key for decryption: ");
 	scanf("%d", &key);
 	
 	for(i = 0; message[i] != '\0'; ++i){
@@ -80,7 +84,7 @@ int caesarDecrypt()
 		}
 	}
 	
-	printf("Mensagem decriptografada: %s", message);
+	printf("Decrypted message: %s", message);
 	getchar();
 	printf("\n");
 	

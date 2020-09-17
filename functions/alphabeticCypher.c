@@ -9,23 +9,19 @@ int alphabeticCypher() {
 
     int i, j;
 
-    char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
-    char order[] = "aeosrdnitmulcvpgqbfhjxzkyw";
-    char changes[] = "jgmfri";
-    char keys[MAX_CHAR + 1]; // + 1 por causa do terminador da string.
+    char order[] = "aeosrdnifhjxzkywtmulcvpgqb";
     int freq[MAX_CHAR];
     int freqTwo[MAX_CHAR];
     char encrypted[MAX_STR_LEN];
-    char decrypted[MAX_STR_LEN];
     char toEncrypt[MAX_STR_LEN];
 
-    // Passo 0:
+    // Passo 1:
     // Limpa o vetor "freq".
     for (i = 0; i < MAX_CHAR; i++) {
         freq[i] = 0;
     }
 
-    // Passo 1:
+    // Passo 2:
     // Realiza a busca do texto a ser criptografado
     printf("Informe o texto a criptografar: ");
     fgets(toEncrypt, MAX_STR_LEN, stdin);
@@ -35,11 +31,6 @@ int alphabeticCypher() {
     encrypted[i] = '\0';
     puts("Texto encriptado pela substituicao alfabetica: ");
     puts(encrypted);
-
-    // Passo 2:
-    // Lê a string codificada do usuário.
-    printf("Digite o texto criptografado: ");
-    fgets(encrypted, MAX_STR_LEN, stdin);
 
     // Passo 3:
     // Percorre a string "encrypted" e conta quantas vezes cada letra aparece,
@@ -77,10 +68,8 @@ int alphabeticCypher() {
                 highestIndex = j;
             }
         }
-        keys[highestIndex] = order[i];
         freq[highestIndex] = -1;
     }
-    keys[MAX_CHAR] = 0;
 
     // Passo 6 (opcional):
     // Percorre a tabela "freqTwo" para procurar por letras que ocorram um mesmo
@@ -101,37 +90,6 @@ int alphabeticCypher() {
         freqTwo[i] = 0;
         if (p != 0) printf("\n");
     }
-
-    // Passo 7 (opcional):
-    // Troca algumas letras da "keys" a fim de ajeitar manualmente os casos que estiverem errados.
-    // As letras das posições pares são permutadas com as das posições ímpares de "changes".
-    for (i = 0; changes[i]; i += 2) {
-        char temp = keys[changes[i] - 'a'];
-        keys[changes[i] - 'a'] = keys[changes[i + 1] - 'a'];
-        keys[changes[i + 1] - 'a'] = temp;
-    }
-
-    // Passo 8 (opcional):
-    // Mostra a keys.
-    printf("\nA chave eh:\n%s\n%s\n", alphabet, keys);
-
-    // Passo 9:
-    // Tendo o vetor "keys" montado, usa ele para formar a string "decrypted"
-    // a partir de "encrypted".
-    for (i = 0; encrypted[i]; i++) {
-        if (encrypted[i] >= 'a' && encrypted[i] <= 'z') { // Letras minúsculas.
-            decrypted[i] = keys[encrypted[i] - 'a'];
-        } else if (encrypted[i] >= 'A' && encrypted[i] <= 'Z') { // Letras maiúsculas.
-            decrypted[i] = keys[encrypted[i] - 'A'] - 'a' + 'A';
-        } else { // Copia qualquer outra coisa diretamente.
-            decrypted[i] = encrypted[i];
-        }
-    }
-    decrypted[i] = encrypted[i]; // Copia o terminador nulo.
-
-    // Passo 10:
-    // Mostra o texto "decrypted".
-    printf("\nO texto descriptografado eh:\n%s\n", decrypted);  
 
     return 0;
 }

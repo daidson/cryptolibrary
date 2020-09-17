@@ -16,7 +16,7 @@ int main(void) {
         printf("Pick one option from the next ones:\n\n");
         printf("1 - Caesar Cypher Encryption;\n");
         printf("2 - Caesar Cypher Decryption;\n");
-        printf("3 - Alphabetic Cypher;\n");
+        printf("3 - Alphabetic Cipher;\n");
         printf("4 - EXIT;\n\n");
  
         scanf("%d",&choice);
@@ -30,7 +30,7 @@ int main(void) {
             case 2 : caesarDecrypt();
                      getchar();
                      break;
-            case 3 : alphabeticCypher();
+            case 3 : alphabeticCipher();
             getchar();
             break;
         }

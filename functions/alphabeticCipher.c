@@ -5,7 +5,7 @@
 #define MAX_STR_LEN 1000
 #define MAX_CHAR 26
 
-int alphabeticCypher() {
+int alphabeticCipher() {
 
     int i, j;
 

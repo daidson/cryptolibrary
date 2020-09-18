@@ -5,11 +5,13 @@
 #include<ctype.h>
 #include<stdbool.h>
 #include<windows.h>
+#include<math.h>
 
 // || Add functions here				    //
 #include "../functions/caesarEncrypt.c"
 #include "../functions/caesarDecrypt.c"
-#include "../functions/alphabeticCypher.c"
+#include "../functions/alphabeticCipher.c"
+#include "../functions/playfairCipher.c"
 
 // || Add definitions here				    //
 #define MAX_STR_LEN 1000
@@ -34,7 +36,12 @@ int caesarDecrypt();
 
 // || exercise three                   		//
 // || make an alphabetic substitution.		//
-// || this is based alphabetic cypher. 		//
+// || this is based on alphabetic cypher. 	//
 int alphabeticCipher();
+
+// || exercise four                   		//
+// || make a cryptographic matrix.  		//
+// || this is based on playfair cypher. 	//
+int playfairCipher();
 
 #endif

@@ -23,7 +23,7 @@ int playfairCipher()
     gets(pt);
 
     startMatrix();
-    removeSpaces();
+    
     removeRepeated();
     equalizeLetters();
     saveKeyInMatrix();

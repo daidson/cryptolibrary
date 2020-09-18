@@ -1,4 +1,5 @@
 void encrypt(char pt[], char mat[]);
+void startMatrix();
 
 int playfairCipher() {
     char ky[50], pt[100], key[50];
@@ -12,8 +13,15 @@ int playfairCipher() {
     gets(ky);
     printf("\nEntre com o texto a ser criptografado: \n");
     gets(pt);
+    
+    startMatrix();
 
-    //iniciando a matriz no ponto 0
+
+}
+
+void startMatrix() {
+    int i = 0;
+    //start matrix in zero
     for (i = 0; i < 5; i++)
     {
         for (j = 0; j < 5; j++)

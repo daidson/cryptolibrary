@@ -1,49 +1,20 @@
 void encrypt(char pt[], char mat[]);
-void startMatrix();
-void removeSpaces();
-void removeRepeated();
-void equalizeLetters();
-void saveKeyInMatrix();
-void saveMatrixElements();
-void printMatrix();
-void createArray();
-void printCrypto();
 
 int playfairCipher()
 {
     char ky[50], pt[100], key[50];
     char m[5][5];
+    // char mat[25];
     char ch = 'a';
     int i = 0, j = 0, a = 0, b = 0, temp1 = 0;
     int l, temp = 0, flag;
-
+     
     printf("\nEntre com a chave: \n");
     gets(ky);
     printf("\nEntre com o texto a ser criptografado: \n");
     gets(pt);
 
-    startMatrix();
-    removeSpaces();
-    removeRepeated();
-    equalizeLetters();
-    saveKeyInMatrix();
-    saveMatrixElements();
-    printMatrix();
-    createArray();
-    printCrypto();
-
-    return 0;
-}
-
-void startMatrix()
-{
-    char ky[50], pt[100], key[50];
-    char m[5][5];
-    char ch = 'a';
-    int i = 0, j = 0, a = 0, b = 0, temp1 = 0;
-    int l, temp = 0, flag;
-
-    //start matrix in zero
+    //iniciando a matriz no ponto 0
     for (i = 0; i < 5; i++)
     {
         for (j = 0; j < 5; j++)
@@ -51,17 +22,9 @@ void startMatrix()
             m[i][j] = 0;
         }
     }
-}
-
-void removeSpaces()
-{
-    char ky[50], pt[100], key[50];
-    char m[5][5];
-    char ch = 'a';
-    int i = 0, j = 0, a = 0, b = 0, temp1 = 0;
-    int l, temp = 0, flag;
 
     //Removendo espacos da chave
+    temp = 0;
     while (ky[temp] != '\0')
     {
         if (ky[temp] == ' ')
@@ -77,17 +40,10 @@ void removeSpaces()
         }
         temp++;
     }
-}
-
-void removeRepeated()
-{
-    char ky[50], pt[100], key[50];
-    char m[5][5];
-    char ch = 'a';
-    int i = 0, j = 0, a = 0, b = 0, temp1 = 0;
-    int l, temp = 0, flag;
 
     //Removendo elementos repetidos da chave e salvando numa chave nova
+    temp = 0;
+    temp1 = 0;
     while (ky[temp] != '\0')
     {
         flag = 0;
@@ -107,17 +63,9 @@ void removeRepeated()
         temp++;
     }
     key[temp1] = '\0';
-}
 
-void equalizeLetters()
-{
     //Fazendo elementos i e j serem o mesmo
-    char ky[50], pt[100], key[50];
-    char m[5][5];
-    char ch = 'a';
-    int i = 0, j = 0, a = 0, b = 0, temp1 = 0;
-    int l, temp = 0, flag;
-
+    temp = 0;
     while (key[temp] != '\0')
     {
         if (key[temp] == 'i' || key[temp] == 'j')
@@ -138,17 +86,11 @@ void equalizeLetters()
         }
         temp++;
     }
-}
 
-void saveKeyInMatrix()
-{
     //Salvando chave na matriz
-    char ky[50], pt[100], key[50];
-    char m[5][5];
-    char ch = 'a';
-    int i = 0, j = 0, a = 0, b = 0, temp1 = 0;
-    int l, temp = 0, flag;
-
+    temp = 0;
+    a = 0;
+    b = 0;
     while (key[temp] != '\0')
     {
         if (b == 5)
@@ -160,15 +102,6 @@ void saveKeyInMatrix()
         temp++;
         b++;
     }
-}
-
-void saveMatrixElements()
-{
-    char ky[50], pt[100], key[50];
-    char m[5][5];
-    char ch = 'a';
-    int i = 0, j = 0, a = 0, b = 0, temp1 = 0;
-    int l, temp = 0, flag;
 
     //Salvando os elementos na matriz exceto pela chave
     for (i = 0; i < 5; i++)
@@ -210,15 +143,6 @@ void saveMatrixElements()
                 j--;
         }
     }
-}
-
-void printMatrix()
-{
-    char ky[50], pt[100], key[50];
-    char m[5][5];
-    char ch = 'a';
-    int i = 0, j = 0, a = 0, b = 0, temp1 = 0;
-    int l, temp = 0, flag;
 
     //Mostra a matriz em tela
     printf("\n\nMatriz:\n\n");
@@ -230,15 +154,6 @@ void printMatrix()
         }
         printf("\n");
     }
-}
-
-void createArray()
-{
-    char ky[50], pt[100], key[50];
-    char m[5][5];
-    char ch = 'a';
-    int i = 0, j = 0, a = 0, b = 0, temp1 = 0;
-    int l, temp = 0, flag;
 
     //Criando vetor unidimensional novo para passar na funcao
     i = 0;
@@ -253,15 +168,6 @@ void createArray()
         // mat[temp] = m[i][j];
         j++;
     }
-}
-
-void printCrypto()
-{
-    char ky[50], pt[100], key[50];
-    char m[5][5];
-    char ch = 'a';
-    int i = 0, j = 0, a = 0, b = 0, temp1 = 0;
-    int l, temp = 0, flag;
 
     //Passando os caracteres criptografados de dois em dois na funcao
     l = strlen(pt);
@@ -311,6 +217,7 @@ void printCrypto()
         }
         encrypt(ky, *m);
     }
+    return 0;
 }
 
 void encrypt(char pt[], char mat[])

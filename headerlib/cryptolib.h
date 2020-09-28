@@ -6,12 +6,14 @@
 #include<stdbool.h>
 #include<windows.h>
 #include<math.h>
+#include<conio.h>
 
 // || Add functions here				    //
 #include "../functions/caesarEncrypt.c"
 #include "../functions/caesarDecrypt.c"
 #include "../functions/alphabeticCipher.c"
 #include "../functions/playfairCipher.c"
+#include "../functions/polyalphabeticCipher.c"
 
 // || Add definitions here				    //
 #define MAX_STR_LEN 1000
@@ -43,5 +45,8 @@ int alphabeticCipher();
 // || make a cryptographic matrix.  		//
 // || this is based on playfair cypher. 	//
 int playfairCipher();
+
+
+int polyalphabeticCipher();
 
 #endif

@@ -18,7 +18,8 @@ int main(void) {
         printf("2 - Caesar Cypher Decryption;\n");
         printf("3 - Alphabetic Cipher;\n");
         printf("4 - Playfair Cipher;\n");
-        printf("5 - EXIT;\n\n");
+        printf("5 - Polyalphabetic Cipher;\n\n");
+        printf("6 - EXIT;\n\n");
  
         scanf("%d",&choice);
         fflush(stdin);
@@ -36,10 +37,13 @@ int main(void) {
                      break;
             case 4 : playfairCipher();
                      getchar();
-                     break;                     
+                     break;
+            case 5 : polyalphabeticCipher();
+                     getchar();
+                     break;
         }
         printf("\n");
         
     }
-    while(choice!=5);
+    while(choice!=6);
 }

@@ -1,6 +1,6 @@
 int polyalphabeticCipher()
 {
-    char msg[30], key[30], k[20], ct[20], pt[20];
+    char msg[255], key[255], k[255], ct[255], pt[255];
     int lenm, lenk, i;
     int j = 0;
 
@@ -22,12 +22,12 @@ int polyalphabeticCipher()
     }
     for (i = 0; i < lenm; i++)
     {
-        ct[i] = ((msg[i] + k[i]) % 26) + 'A';
+        ct[i] = ((toupper(msg[i]) + toupper(k[i])) % 26) + 'B';
     }
     ct[i] = '\0';
     for (i = 0; i < lenm; i++)
     {
-        pt[i] = (((ct[i] - k[i]) + 26) % 26) + 'A';
+        pt[i] = (((toupper(ct[i]) - toupper(k[i])) + 25) % 26) + 'A';
     }
     pt[i] = '\0';
     printf("\nTexto criptografado: %s\n", ct);

@@ -16,6 +16,7 @@
 #include "../functions/playfairCipher.c"
 #include "../functions/polyalphabeticCipher.c"
 #include "../functions/transpositionCipher.c"
+#include "../functions/productCipher.c"
 
 // || Add definitions here				    //
 #define MAX_STR_LEN 1000
@@ -53,6 +54,14 @@ int playfairCipher();
 // || as many levels of alphabetical cipher.//
 int polyalphabeticCipher();
 
+// || exercise six                   		//
+// || make a transposition cipher.  		//
+// || based on the rail fence algorithm.    //
 int transpositionCipher();
+
+// || exercise seven                   		//
+// || make a product cipher using two other.//
+// || use polyalphabetic and transposition. //
+int productCipher();
 
 #endif

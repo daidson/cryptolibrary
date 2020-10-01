@@ -1,41 +1,33 @@
-void railfence_encipher(int key, const char *plaintext, char *ciphertext);
-void railfence_decipher(int key, const char *ciphertext, char *plaintext);
+void railfenceEncrypt(int key, const char *plaintext, char *ciphertext);
+void railfenceDecrypt(int key, const char *ciphertext, char *plaintext);
 
 int transpositionCipher(){
     char msg[1024];
+    int key;
 
     printf("\nEntre com o texto a ser criptografado: \n");
     gets(msg);
 
-    /* the string to encipher / decipher */
-    // char *plaintext = "defendtheeastwallofthecastle";
-
-    /* allocate some space for results of enciphering/deciphering */
     char *ciphertext = malloc(strlen(msg)+1);
     char *result = malloc(strlen(msg)+1);
+
+    printf("\nEntre com a chave: \n");
+    scanf("%d", &key);
     
-    /* the following lines do all the enciphering and deciphering */
-    railfence_encipher(3, msg,ciphertext);
-    railfence_decipher(3, ciphertext,result);
-    /* print our results */
-    printf("-->original:   %s\n-->ciphertext: %s\n-->plaintext:  %s\n",
-            msg,ciphertext,result);
+    railfenceEncrypt(key, msg, ciphertext);
+    railfenceDecrypt(key, ciphertext, result);
+
+    printf("Mensagem original: %s\n", msg);
+    printf("\nTexto criptografado: %s\n", ciphertext);
+    printf("\nTexto descriptografado: %s\n", result);
     
     free(ciphertext);
     free(result);
     
-    system("PAUSE");
     return 0;
 }
 
-/*******************************************************************
-void railfence_encipher(int key, const char *plaintext, char *ciphertext)
-- Uses railfence transposition cipher to encipher some text.
-- takes a key, string of plaintext, result returned in ciphertext.
-- ciphertext should be an array the same size as plaintext.
-- The key is the number of rails to use
-*******************************************************************/
-void railfence_encipher(int key, const char *plaintext, char *ciphertext){
+void railfenceEncrypt(int key, const char *plaintext, char *ciphertext){
     int line, i, skip, length = strlen(plaintext), j=0,k=0;    
     for(line = 0; line < key-1; line++){
         skip = 2*(key - line - 1); 
@@ -48,17 +40,10 @@ void railfence_encipher(int key, const char *plaintext, char *ciphertext){
         }
     }
     for(i=line; i<length; i+=2*(key-1)) ciphertext[j++] = plaintext[i];
-    ciphertext[j] = '\0'; /* Null terminate */  
+    ciphertext[j] = '\0';
 }
 
-/*******************************************************************
-void railfence_decipher(int key, const char *ciphertext, char *plaintext)
-- Uses railfence transposition cipher to decipher some text.
-- takes a key, string of ciphertext, result returned in plaintext.
-- plaintext should be an array the same size as plaintext.
-- The key is the number of rails to use
-*******************************************************************/
-void railfence_decipher(int key, const char *ciphertext, char *plaintext){
+void railfenceDecrypt(int key, const char *ciphertext, char *plaintext){
     int i, length = strlen(ciphertext), skip, line, j, k=0;
     for(line=0; line<key-1; line++){
         skip=2*(key-line-1);	  
@@ -71,5 +56,5 @@ void railfence_decipher(int key, const char *ciphertext, char *plaintext){
         }
     }
     for(i=line; i<length; i+=2*(key-1)) plaintext[i] = ciphertext[k++];
-    plaintext[length] = '\0'; /* Null terminate */  
+    plaintext[length] = '\0';  
 }

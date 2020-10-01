@@ -20,7 +20,8 @@ int main(void) {
         printf("4 - Playfair Cipher;\n");
         printf("5 - Polyalphabetic Cipher;\n");
         printf("6 - Transposition Cipher;\n");
-        printf("7 - EXIT;\n\n");
+        printf("7 - Product Cipher;\n");
+        printf("8 - EXIT;\n\n");
  
         scanf("%d",&choice);
         fflush(stdin);
@@ -45,9 +46,14 @@ int main(void) {
             case 6 : transpositionCipher();
                      getchar();
                      break;
+            case 7 : productCipher();
+                     getchar();
+                     break;
         }
         printf("\n");
         
     }
-    while(choice!=7);
+    while(choice!=8);
+    system("PAUSE");
+    system("EXIT");
 }

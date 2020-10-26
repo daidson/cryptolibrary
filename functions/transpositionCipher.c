@@ -3,7 +3,7 @@ void railfenceDecrypt(int key, const char *ciphertext, char *plaintext);
 
 int transpositionCipher(){
     char msg[1024];
-    int key;
+    // int key;
 
     printf("\nEntre com o texto a ser criptografado: \n");
     gets(msg);
@@ -11,11 +11,11 @@ int transpositionCipher(){
     char *ciphertext = malloc(strlen(msg)+1);
     char *result = malloc(strlen(msg)+1);
 
-    printf("\nEntre com a chave: \n");
-    scanf("%d", &key);
+    // printf("\nEntre com a chave: \n");
+    // scanf("%d", &key);
     
-    railfenceEncrypt(key, msg, ciphertext);
-    railfenceDecrypt(key, ciphertext, result);
+    railfenceEncrypt(3, msg, ciphertext);
+    railfenceDecrypt(3, ciphertext, result);
 
     printf("Mensagem original: %s\n", msg);
     printf("\nTexto criptografado: %s\n", ciphertext);

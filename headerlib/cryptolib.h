@@ -7,7 +7,7 @@
 #include<windows.h>
 #include<math.h>
 #include<conio.h>
-#include <ctype.h>
+#include<ctype.h>
 
 // || Add functions here				    //
 #include "../functions/caesarEncrypt.c"
@@ -17,6 +17,8 @@
 #include "../functions/polyalphabeticCipher.c"
 #include "../functions/transpositionCipher.c"
 #include "../functions/productCipher.c"
+#include "../functions/desEncryption.c"
+#include "../functions/desDecryption.c"
 
 // || Add definitions here				    //
 #define MAX_STR_LEN 1000
@@ -63,5 +65,15 @@ int transpositionCipher();
 // || make a product cipher using two other.//
 // || use polyalphabetic and transposition. //
 int productCipher();
+
+// || exercise eight                   		//
+// || make a DES algorithm encryption.      //
+// || use 16 bits allocation on the step.   //
+int desEncryption();
+
+// || exercise eight                   		//
+// || make a DES algorithm decryption.      //
+// || use 16 bits allocation on the step.   //
+int desEncryption();
 
 #endif

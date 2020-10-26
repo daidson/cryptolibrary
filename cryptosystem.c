@@ -21,7 +21,9 @@ int main(void) {
         printf("5 - Polyalphabetic Cipher;\n");
         printf("6 - Transposition Cipher;\n");
         printf("7 - Product Cipher;\n");
-        printf("8 - EXIT;\n\n");
+        printf("8 - DES Encryption;\n");
+        printf("9 - DES Decryption;\n");
+        printf("0 - EXIT;\n\n");
  
         scanf("%d",&choice);
         fflush(stdin);
@@ -49,11 +51,17 @@ int main(void) {
             case 7 : productCipher();
                      getchar();
                      break;
+            case 8 : desEncryption();
+                     getchar();
+                     break;
+            // case 9 : desDecryption();
+            //          getchar();
+            //          break;
         }
         printf("\n");
         
     }
-    while(choice!=8);
+    while(choice!=0);
     system("PAUSE");
     system("EXIT");
 }

@@ -54,9 +54,9 @@ int main(void) {
             case 8 : desEncryption();
                      getchar();
                      break;
-            // case 9 : desDecryption();
-            //          getchar();
-            //          break;
+            case 9 : desDecryption();
+                     getchar();
+                     break;
         }
         printf("\n");
         

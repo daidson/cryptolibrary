@@ -1,67 +1,53 @@
 int desEncryption()
 {
     int i, cnt = 0;
-    int p8[8] = {6, 7, 8, 9, 1, 2, 3, 4};
-    int p10[10] = {6, 7, 8, 9, 10, 1, 2, 3, 4, 5};
+    int p16[16] = {9, 10, 11, 12, 13, 14, 15, 16, 1, 2, 3, 4, 5, 6, 7, 8};
 
-    char input[11], k1[10], temp[11];
+    char input[17], temp[17];
     //k1, k2 are for storing interim keys
-    //p8 and p10 are for storing permutation key
+    //p8 and p16 are for storing permutation key
 
     //Read 10 bits from user...
-    printf("Enter 10 bits input:");
+    printf("Entre com o input de 16 bits para criptografar: ");
     scanf("%s", input);
-    input[10] = '\0';
+    input[16] = '\0';
 
-    //Applying p10...
-    for (i = 0; i < 10; i++)
+    //Applying p16...
+    for (i = 0; i < 16; i++)
     {
-        cnt = p10[i];
+        cnt = p16[i];
         temp[i] = input[cnt - 1];
     }
     temp[i] = '\0';
-    printf("\nYour p10 key is    :");
-    for (i = 0; i < 10; i++)
+
+    printf("\nSua chave de 16 bits eh: ");
+    printf("| ");
+    for (i = 0; i < 16; i++)
     {
-        printf("%d,", p10[i]);
+        printf("%d |", p16[i]);
     }
 
-    printf("\nBits after p10     :");
+    printf("\nBits depois de passarem por 16 alocacoes: ");
     puts(temp);
+
     //Performing LS-1 on first half of temp
-    for (i = 0; i < 5; i++)
+    for (i = 0; i < 8; i++)
     {
-        if (i == 4)
+        if (i == 7)
             temp[i] = temp[0];
         else
             temp[i] = temp[i + 1];
     }
     //Performing LS-1 on second half of temp
-    for (i = 5; i < 10; i++)
+    for (i = 8; i < 16; i++)
     {
-        if (i == 9)
-            temp[i] = temp[5];
+        if (i == 15)
+            temp[i] = temp[8];
         else
             temp[i] = temp[i + 1];
     }
-    printf("Output after LS-1  :");
+    printf("Saida final: ");
     puts(temp);
-
-    printf("\nYour p8 key is     :");
-    for (i = 0; i < 8; i++)
-    {
-        printf("%d,", p8[i]);
-    }
-
-    //Applying p8...
-    for (i = 0; i < 8; i++)
-    {
-        cnt = p8[i];
-        k1[i] = temp[cnt - 1];
-    }
-    printf("\nYour key k1 is     :");
-    puts(k1);
-    //This program can be extended to generate k2 as per DES algorithm.
 
     getchar();
 
